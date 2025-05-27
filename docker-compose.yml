@@ -6,7 +6,7 @@ services:
     command: bundle exec rails server -b 0.0.0.0 -p 3000
     volumes:
       - .:/rails
-      - ~/.ssh:/home/rails/.ssh:ro
+      - ssh_data:/home/rails/.ssh
     ports:
       - "3000:3000"
     depends_on:
@@ -37,3 +37,4 @@ services:
 
 volumes:
   pgdata:
+  ssh_data:
