@@ -1,0 +1,10 @@
+<%= tag.div do %>
+  <%= tag.div id: "messages", class: "h-96 overflow-auto" do %>
+    <%= render partial: "message", collection: Message.last(10) %>
+  <% end %>
+
+  <%= form_with model: Message.new, class: "mt-4" do |f| %>
+    <%= f.text_field :content, placeholder: "message...", class: "p-2 border rounded" %>
+    <%= f.submit "send", class: "p-2 font-bold bg-blue-500 text-white rounded" %>
+  <% end %>
+<% end %>
