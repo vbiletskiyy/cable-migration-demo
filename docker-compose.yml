@@ -35,6 +35,19 @@ services:
     ports:
       - "6379:6379"
 
+  anycable:
+    image: anycable/anycable-go
+    ports:
+      - "8080:8080" # This exposes the WebSocket server to your host
+    environment:
+      ANYCABLE_REDIS_URL: redis://redis:6379/0
+      ANYCABLE_LOG_LEVEL: debug
+      ANYCABLE_WS_HOST: "0.0.0.0:8080"
+      ANYCABLE_HOST: "0.0.0.0"
+      ANYCABLE_RPC_HOST: web:50051
+    depends_on:
+      - redis
+
 volumes:
   pgdata:
   ssh_data:
