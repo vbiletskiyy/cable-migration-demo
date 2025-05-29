@@ -22,7 +22,7 @@ export const options = {
   },
 };
 
-const BASE_URL = 'ws://localhost:3000/cable';
+const BASE_URL = 'ws://localhost:8080/cable';
 
 export default function () {
   const url = `${BASE_URL}`;
