@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  protect_from_forgery with: :null_session
   before_action :set_message, only: %i[ show edit update destroy ]
 
   # GET /messages or /messages.json
